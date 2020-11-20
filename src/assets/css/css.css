@@ -1,0 +1,7 @@
+body {
+  background-image: url("~@/assets/images/star-wars-background.png");
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
