@@ -62,7 +62,6 @@ export default {
       this.selectedCharacters = [];
     },
     nextPage() {
-      console.log(this.selectedCharacters);
       if (this.currentPage == this.lastPage) return;
       this.currentPage += 1;
       this.fetchCharacters(this.currentPage);
@@ -83,7 +82,6 @@ export default {
           element.isSelected = this.selectedCharacters.find(
             (item) => item.name === element.name
           );
-
           this.characters.push(element);
         }
         this.lastPage = parseInt(response.data.count / 10);

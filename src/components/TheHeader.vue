@@ -36,18 +36,6 @@ export default {
       required: true,
     },
   },
-
-  // computed: {
-  //   selectedNames() {
-  //     var authors = ["some author", "another author", "last author"];
-  //     var authorString = authors
-  //       .map(function(author) {
-  //         return author.name;
-  //       })
-  //       .join(",");
-  //     return authorString;
-  //   },
-  // },
 };
 </script>
 
