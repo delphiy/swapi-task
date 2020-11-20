@@ -2,6 +2,7 @@
   <div id="app">
     <div class="container-fluid text-white" style="position: relative;">
       <TheHeader
+        :selectedNames="selectedNames"
         :selectedLength="selectedCharacters.length"
         @on-download="download"
         @on-reset="reset"
@@ -36,6 +37,7 @@ export default {
     return {
       characters: [],
       selectedCharacters: [],
+      selectedNames: "",
       currentPage: 1,
       lastPage: 1,
     };
@@ -100,9 +102,9 @@ export default {
         this.selectedCharacters = this.selectedCharacters.filter(
           (item) => item.name !== character.name
         );
+
         return;
       }
-      console.log(this.selectedCharacters);
       if (this.selectedCharacters.length == 3) {
         alert("Maximum number for characters selection is 3");
         return;
@@ -118,6 +120,16 @@ export default {
           return Object.values(it).toString();
         })
         .join("\n");
+    },
+  },
+
+  watch: {
+    selectedCharacters() {
+      this.selectedNames = this.selectedCharacters
+        .map(function(author) {
+          return author.name;
+        })
+        .join(", ");
     },
   },
 };
